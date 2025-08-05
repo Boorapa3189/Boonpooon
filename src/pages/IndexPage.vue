@@ -1,6 +1,5 @@
 <template>
   <div class="q-pa-md" style="max-width: 400px">
-
     <q-form
       @submit="onSubmit"
       @reset="onReset"
@@ -14,7 +13,6 @@
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'กรุณาพิมพ์ชื่อ']"
       />
-
       <q-input
         filled
         type="number"
@@ -34,7 +32,6 @@
         <q-btn label="ยกเลิก" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
-
   </div>
 </template>
 
@@ -49,6 +46,7 @@ export default {
     const name = ref(null)
     const age = ref(null)
     const accept = ref(false)
+
     return {
       name,
       age,
