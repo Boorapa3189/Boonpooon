@@ -1,6 +1,5 @@
 <template>
   <div class="q-pa-md" style="max-width: 400px">
-
     <q-form
       @submit="onSubmit"
       @reset="onReset"
@@ -9,12 +8,11 @@
       <q-input
         filled
         v-model="name"
-        label="ชื่อ-สกุล: *"
-        hint="กรุณาใส่ชื่อและนามสกุล"
+        label="Your name *"
+        hint="Name and surname"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'กรุณาใส่ข้อความที่ถูกต้อง']"
+        :rules="[ val => val && val.length > 0 || 'Please type something']"
       />
-
       <q-input
         filled
         type="number"
@@ -26,15 +24,12 @@
           val => val > 0 && val < 100 || 'กรุณาใส่อายุที่ถูกต้องนะจะ'
         ]"
       />
-
       <q-toggle v-model="accept" label="I accept the license and terms" />
-
       <div>
         <q-btn label="ยืนยัน" type="submit" color="primary"/>
         <q-btn label="รีเซ็ต" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
-
   </div>
 </template>
 
@@ -49,12 +44,10 @@ export default {
     const name = ref(null)
     const age = ref(null)
     const accept = ref(false)
-
     return {
       name,
       age,
       accept,
-
       onSubmit () {
         if (accept.value !== true) {
           $q.notify({
@@ -73,7 +66,6 @@ export default {
           })
         }
       },
-
       onReset () {
         name.value = null
         age.value = null
